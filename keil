@@ -1,0 +1,26 @@
+✅ 1. Build the Project
+Click on the Build icon (or press F7) to compile the code and check for errors.
+
+✅ 2. Start the Debugger
+Click Debug > Start/Stop Debug Session from the menu bar, or press Ctrl + F5.
+
+✅ 3. Use Step Controls
+Once in the debugger mode, use these toolbar buttons or shortcuts:
+
+Action	Toolbar Icon	Shortcut
+Step Into	
+F11
+Step Over	
+F10
+Step Out	
+Shift + F11
+Run (Continue)	▶️ (Play icon)	F5
+Stop Debugging	■ (Stop icon)	Ctrl + F5
+
+✅ 4. Watch Variables & Memory
+Use the "Watch" window, "Locals", or "Memory" view to observe variable changes.
+
+Go to View > Watch Windows > Watch 1 to track variable values live.
+
+✅ 5. Set Breakpoints (Optional)
+Click on the left margin next to a line of code or press F9 to set a breakpoint.
