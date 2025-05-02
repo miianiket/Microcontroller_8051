@@ -1,0 +1,11 @@
+ORG 0000H
+MOV R0,#20H	; initialize DPTR with source address
+		MOV R1, #40H	;Initialize the memory pointer with destination
+		MOV R2, #0AH	; Counter
+BACK:	MOV A,@R0	; Move source contents to accumulator
+	        MOV @R1, A	; Move accumulator contents to destination
+		INC R0		; Increment the source memory pointer
+		INC R1		; Increment the destination memory pointer
+		DJNZ R2, BACK	; decrement the counter & jump if not zero.
+HERE:	SJMP HERE
+		END 
