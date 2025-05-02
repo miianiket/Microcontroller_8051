@@ -1,0 +1,46 @@
+#include<p18f4520.h>
+#pragma config OSC = HS
+#pragma config PWRT = OFF
+#pragma config BOREN = OFF
+#pragma config WDT = OFF
+#pragma config LVP = OFF
+#pragma config PBADEN = OFF
+
+void myMsDelay (unsigned int time);
+#pragma code
+
+void main()
+{ 
+	TRISCbits.TRISC2 = 0 ;              // Set PORTC, 2 as output
+    TRISCbits.TRISC6 = 0 ;
+	TRISCbits.TRISC7 = 0 ;
+	PR2 = 0X7F;                         // set PWM period to Maximum value 
+    CCPR1L = 0x12;                      // Initalise PWM duty cycle to 00 
+    CCP1CON = 0x3C;                     // Configure CCP1CON as explained above.
+ 	T2CON = 0x07;
+
+	PORTCbits.RC6 = 1 ;
+	PORTCbits.RC7 = 0 ;
+  while(1)
+	{
+		CCPR1L = 0x2F;
+		myMsDelay(1500);
+		CCPR1L = 0x3F;
+		myMsDelay(1500);
+		CCPR1L = 0x4F;
+		myMsDelay(1500);
+		CCPR1L = 0x5F;
+		myMsDelay(1500);
+		CCPR1L = 0x6F;
+		myMsDelay(1500);
+		CCPR1L = 0x7F;
+		myMsDelay(1000);
+ 	}   
+ 
+}
+void myMsDelay (unsigned int time)
+{
+	unsigned int i, j;
+	for (i = 0; i < time; i++)
+		for (j = 0; j < 710; j++);/*Calibrated for a 1 ms delay in MPLAB*/
+}
