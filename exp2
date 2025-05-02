@@ -1,0 +1,81 @@
+Program for LED blinking
+#include <reg51.h>
+void DELAY_ms(unsigned int ms_Count)
+{
+    unsigned int i,j;
+    for(i=0;i<ms_Count;i++)
+    {
+        for(j=0;j<100;j++);
+    }
+}
+int main() 
+{
+    while(1)
+    {
+        P2 = 0xff; /* Turn ON all the leds connected to P2 */
+        DELAY_ms(500);
+        
+        P2 = 0x00; /* Turn OFF all the leds connected to P2 */
+        DELAY_ms(500);
+    }
+    return (0);
+}
+************************************************************************
+Program for single LED blinking
+#include <reg51.h>
+
+sbit LED = P2^0;    // Bling the single LED connected to P2.0
+
+void DELAY_ms(unsigned int ms_Count)
+{
+    unsigned int i,j;
+    for(i=0;i<ms_Count;i++)
+    {
+        for(j=0;j<100;j++);
+    }
+}
+
+int main() 
+{
+    while(1)
+    {
+        LED = 1; /* Turn ON the LED connected to P2.0 */
+        DELAY_ms(500);
+        
+        LED = 0; /* Turn OFF the LED connected to P2.0 */
+        DELAY_ms(500);
+    }
+    return (0);
+}
+************************************************************************
+
+Program for LED counting
+#include<reg52.h>
+void delay()
+{
+unsigned int i,j;
+for(i=0;i< 500;i++)
+for(j=0;j< 1000;j++);
+}
+
+void main()
+{
+while(1){
+delay(); P1=0x01;  
+delay(); P1=0x02;
+delay(); P1=0x03;  
+delay(); P1=0x04;
+delay(); P1=0x05; 
+delay(); P1=0x06;
+delay(); P1=0x07; 
+delay(); P1=0x08;
+delay(); P1=0x09; 
+delay(); P1=0x0A;
+delay(); P1=0x0B; 
+delay(); P1=0x0C;
+delay(); P1=0x0D; 
+delay(); P1=0x0E;
+delay(); P1=0x0F; 
+delay();
+}
+}
